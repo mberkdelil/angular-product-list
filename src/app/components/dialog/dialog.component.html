@@ -1,0 +1,51 @@
+<h1 mat-dialog-title>Add Product Form</h1>
+<div mat-dialog-content>
+    <form [formGroup]="productForm">
+        <mat-form-field appearance="outline">
+            <mat-label>Product Name</mat-label>
+            <input formControlName="productName" matInput placeholder="Product Name">
+            <mat-error *ngIf="productForm.get('productName')?.hasError('required')">Product name is required.
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Product Category</mat-label>
+            <mat-select formControlName="category" placeholder="Category">
+                <mat-option value="PC">PC</mat-option>
+                <mat-option value="Tel">TEL</mat-option>
+            </mat-select>
+            <mat-error *ngIf="productForm.get('category')?.hasError('required')">Category is required.</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Choose a Date</mat-label>
+            <input formControlName="date" matInput [matDatepicker]="picker" placeholder="Select Date">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-error *ngIf="productForm.get('date')?.hasError('required')">Date is required.</mat-error>
+        </mat-form-field>
+        <label>
+            <h1>Product Freshness</h1>
+        </label>
+        <mat-radio-group formControlName="freshness" class="example-radio-group">
+            <mat-radio-button [value]="fresh" class="example-radio-button" *ngFor="let fresh of freshnessList" >
+                {{fresh}}
+            </mat-radio-button>
+            <mat-error *ngIf="productForm.get('freshness')?.hasError('required')">Freshness is required.</mat-error>
+        </mat-radio-group>
+        <mat-form-field appearance="outline">
+            <mat-label>Price</mat-label>
+            <input formControlName="price" matInput type="number" placeholder="Product Price">
+            <mat-error *ngIf="productForm.get('price')?.hasError('required')">Price is required.</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Comment</mat-label>
+            <textarea formControlName="comment" matInput placeholder="Comment"></textarea>
+            <mat-error *ngIf="productForm.get('price')?.hasError('required')">Comment is required.</mat-error>
+        </mat-form-field>
+    </form>
+</div>
+
+<div mat-dialog-actions [align]="'end'">
+    <button mat-raised-button color="accent" mat-dialog-close>Close</button>
+    <button (click)="addProduct()" [disabled]="productForm.invalid" style="margin-left: 8px" mat-raised-button
+        color="primary" mat-dialog-close>{{actionBtn}}</button>
+</div>

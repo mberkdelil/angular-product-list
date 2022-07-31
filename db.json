@@ -1,0 +1,23 @@
+{
+  "productList": [
+    {
+      "productName": "Asus Gaming Laptop",
+      "category": "PC",
+      "freshness": "Brand New",
+      "price": 16000,
+      "comment": "Asus ROG Gaming Laptop",
+      "date": "2022-07-30T21:00:00.000Z",
+      "id": 1
+    },
+    {
+      "productName": "Lenovo Notebook",
+      "category": "PC",
+      "freshness": "Brand New",
+      "price": 14500,
+      "comment": "Lenovo Gaming Notebook",
+      "date": "2022-07-30T21:00:00.000Z",
+      "id": 2
+    }
+  ],
+  "comments": []
+}
